@@ -1,0 +1,29 @@
+{
+  "name": "handwritten-js",
+  "version": "1.0.0",
+  "description": "JS面试 手写代码系列",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "eslint": "eslint src --ext .ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wsWangjinxu/handwritten-JS.git"
+  },
+  "keywords": [],
+  "author": "wsWangjinxu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wsWangjinxu/handwritten-JS/issues"
+  },
+  "homepage": "https://github.com/wsWangjinxu/handwritten-JS#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
+  }
+}
