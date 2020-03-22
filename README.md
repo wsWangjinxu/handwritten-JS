@@ -29,3 +29,9 @@ JS面试 手写代码系列
 + 返回一个绑定函数
 + 当返回的绑定函数被`new`运算符调用的时候，绑定的上下文指向`new`运算符创建的对象
 + 将绑定函数的`prototype`修改为原函数的`prototype`
+
+## 手写一个 instanceof
+
+`instanceof`运算符用来检测构造函数的`prototype`属性是否出现在左侧实例对象的原型链上，是就返回`true`，否则返回`false`
+
+## 手写一个 ajax
