@@ -8,5 +8,3 @@ function flat(arr) {
     const res = Array.prototype.concat.apply([], arr)
     return flat(arr) // 递归
 }
-
-const = res = flat()
