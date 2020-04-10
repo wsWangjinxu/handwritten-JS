@@ -6,10 +6,8 @@ JS面试 手写代码系列
 * [手写一个bind](#手写一个bind)
 * [手写一个instanceof](#手写一个instanceof)
 * [手写一个ajax](#手写一个ajax)
-* [手写一个JSON.stringify](#手写一个JSON.stringify)
-* [手写一个JSON.parse](#手写一个JSON.parse)
-* [手写一个原型式继承](#手写一个JSON.parse)
-* [手写一个函数柯里化](#手写一个JSON.parse)
+* [手写一个继承](#手写一个继承)
+* [手写一个函数柯里化](#手写一个函数柯里化currying)
 * [手写一个节流](#手写一个节流throttle)
 * [手写一个防抖](#手写一个防抖debounce)
 * [手写一个深拷贝](#手写一个深拷贝)
@@ -158,6 +156,8 @@ function throttle(fn, delay = 100) {
 
 ## 手写一个防抖debounce
 
+用户多次点击一个按钮，使用防抖的话，仅仅会在最后一次触发——一个典型的性能优化场景。
+
 ```js
 function debounce(fn, delay = 500) {
     let timer = null
@@ -173,6 +173,44 @@ function debounce(fn, delay = 500) {
     }
 }
 
+```
+
+## 手写一个继承
+
+```js
+function Animal (name, color) {
+    this.name = name
+    this.color = color
+}
+
+Animal.prototype.say = function() {
+    console.log("say")
+}
+
+Animal.prototype.sayName = function() {
+    console.log(this.name)
+}
+
+function Dog() {
+    Animal.apply(this, arguments)
+}
+
+Object.setPrototypeOf(Dog.prototype, Animal.prototype)
+```
+## 手写一个函数柯里化currying
+所谓的柯里化函数，就是封装一系列的处理步骤，通过闭包将参数集中起来计算，最后再把需要处理的参数传进去。
+
+实现原理：用闭包把传入的参数保存起来，当出入参数的数量足够执行函数时，就开始执行函数。
+
+```js
+function currying(fn, length) {
+  length = length || fn.length
+  return function(...args) {
+    return args.length >= length ?
+      fn.apply(this, args):
+      currying(fn.bind(this, ...args), length - args.length)
+  }
+}
 ```
 
 ## 手写一个深拷贝
